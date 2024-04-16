@@ -1,0 +1,164 @@
+/* Body styles for the whole web */
+body {
+    background-image: url(images/FONDOCOL.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: "Sawarabi Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: plum;
+}
+
+/* Logo section styles */
+#logo_section {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+#logo_section img{
+    height: 550px;
+    width: auto;
+}
+
+/* Expandible buttons section */
+#button_section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+.squareButton {
+    height: 50px;
+    width: 185px;
+    background-color: rgba(50, 48, 48, 0.937);
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    transition: width 1s, height 1s ease;
+}
+.squareButton:hover {
+    transform: scale(1.02);
+}
+.clickable {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+/* Expanded section */
+.squareButton.expanded {
+    width: 550px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.toHide {
+    display: inline-block;
+    transition: opacity 0.5s ease;
+}
+.squareButton.expanded .toHide{
+    height: 1px;
+    opacity: 0;
+}
+
+/* Hidden section */
+.toShowOrHide {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Who we are article */
+#pareja {
+    height: 120px;
+    width: auto;
+    border-radius: 20px;
+}
+
+/* What we sell article */
+#carrusel {
+    position: relative;
+    display: inline-block;
+}
+#carrusel img {
+    height: 400px;
+    width: 550px;
+}
+#prevButton,
+#nextButton {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20px; /* Ajusta el ancho según sea necesario */
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#prevButton {
+    left: 0;
+}
+
+#nextButton {
+    right: 0;
+}
+.bullets-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+.bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+  
+.active {
+    background-color: #ff0000; /* Color para la bolita activa */
+}
+
+/* Mobile devices styles */
+@media only screen and (max-width: 768px) {
+    #logo_section img{
+        height: 360px;
+        width: auto;
+    }
+    #button_section{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .squareButton.expanded{
+        width: 300px;
+    }
+    #carrusel img {
+        height: 400px;
+        width: 300px;
+    }
+}

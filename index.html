@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script defer type="text/javascript" src="scripts.js"></script>
+    <link rel="icon" href="images/carrito-de-compras.png">
+    <title>Supermercat</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Pedro Rojas">
+    <meta name="description" content="Supermercado">
+    <meta name="keywords" content="Supermarket, Super, Supermercado, Tienda">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <!-- Logo Section -->
+        <section id="logo_section">
+            <img src="images/LOG1.png" alt="Logo del Supermercado D&V">
+        </section>
+
+        <!-- 3 buttons section-->
+        <section id="button_section">
+
+            <!-- Who we are article-->
+            <article id="whoWeAre" class="squareButton"  onclick="expand(this)">
+                <article class="clickable">
+                    <span class="toHide">¿Quiénes Somos?</span>
+                    <article class="toShowOrHide">
+                        <img id="pareja" src="images/pareja.jpg" alt="Foto de D&V">
+                        <p>Somos D&V, pareja de emprendedores que han decido traer al maravilloso pueblo de Pineda de Mar todo el sabor y color Colombiano a través de nuestros productos.</p>
+                    </article>
+                </article>
+            </article>
+
+            <!-- Where we are article-->
+            <article id="whereWeAre" class="squareButton" onclick="expand(this)">
+                <article class="clickable">
+                    <span class="toHide">¿Dónde Estamos?</span>
+                    <article class="toShowOrHide">
+                        <p>Nos encontramos en la calle Doctor Bertomeu, 59, 08397, Pineda de Mar.</p>
+                        <p>A 5 minutos de la playa, estamos justo en la rambla comercial de Pineda, casi haciendo esquina con la calle Barcelona.</p>
+                        <p>Estamos abiertos de Lunes a Domingo, desde las 9am hasta las 2am. ¡Ven a visitarnos! También hacemos envíos a domicilio, puedes contactarnos en el teléfono 670 69 80 80.</p>
+                        <a href="https://maps.app.goo.gl/8qo6D3iSyiBcQCP3A" target="_blank">¡Localízanos en Google!</a>
+                    </article>
+                </article>
+            </article>
+
+            <!-- What we sell article-->
+            <article id="whatWeSell" class="squareButton" onclick="expand(this)">
+                <article class="clickable">
+                    <span class="toHide">¿Qué vendemos?</span>
+                    <article class="toShowOrHide">
+                        <article id="carrusel">
+                            <button id="prevButton" onclick="handlePrevButtonClick(event)"><</button>
+                            <img id="img1" src="images/localImgs/prods1.jpg">
+                            <img id="img2" src="images/localImgs/prods2.jpg">
+                            <img id="img3" src="images/localImgs/prods3.jpg">
+                            <button id="nextButton" onclick="handleNextButtonClick(event)">></button>
+                            <div class="bullets-container">
+                                <!-- Bolitas dinámicamente -->
+                            </div>
+                        </article>
+                    </article>
+                </article>
+            </article>
+        </section>
+    </main>
+</body>
