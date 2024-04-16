@@ -1,11 +1,11 @@
 // Function that expands and reduce the clickable articles
-function expand(elemento) {
-    const hidden_sec = elemento.querySelector('.toShowOrHide')
-    const buttons = document.querySelectorAll('.squareButtons')
-    const isExpanded = elemento.classList.contains('expanded')
+function expand(element) {
+    const hidden_sec = element.querySelector('.toShowOrHide')
+    const buttons = document.querySelectorAll('.squareButton')
+    const isExpanded = element.classList.contains('expanded')
 
     if (isExpanded) {
-        elemento.classList.remove('expanded')
+        element.classList.remove('expanded')
         hidden_sec.style.display = 'none'
         return
     }
@@ -18,13 +18,13 @@ function expand(elemento) {
             }
         }
     }
-    elemento.classList.toggle('expanded')
-    if (elemento.classList.contains('expanded')) {
+    element.classList.toggle('expanded')
+    if (element.classList.contains('expanded')) {
         setTimeout(function (){
-            hidden_sec.style.display = "flex"
+            hidden_sec.style.display = 'flex'
         }, 1000)
     } else {
-        hidden_sec.style.display = "none"
+        hidden_sec.style.display = 'none'
     }
 }
 
@@ -32,7 +32,7 @@ function clickAction() {
     expand(this)
 }
 
-const buttons = document.querySelectorAll('.squareButtons')
+const buttons = document.querySelectorAll('.squareButton')
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', clickAction)
