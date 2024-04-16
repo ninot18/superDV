@@ -1,44 +1,43 @@
 // Function that expands and reduce the clickable articles
 function expand(elemento) {
-    let hidden_sec = elemento.querySelector('.toShowOrHide');
-    let elementosExpandidos = document.querySelectorAll('.squareButton.expanded');
+    const hidden_sec = elemento.querySelector('.toShowOrHide')
+    const buttons = document.querySelectorAll('.squareButtons')
+    const isExpanded = elemento.classList.contains('expanded')
 
-    // Deshabilitar temporalmente el manejador de eventos click para evitar clics rápidos
-    elementosExpandidos.forEach(function(item) {
-        item.removeEventListener('click', expand);
-    });
-
-    // Ocultar y colapsar otros elementos expandidos
-    elementosExpandidos.forEach(function(item) {
-        if (item !== elemento) {
-            item.classList.remove('expanded');
-            let hidden_sec = item.querySelector('.toShowOrHide');
-            if (hidden_sec) {
-                hidden_sec.style.display = 'none';
+    if (isExpanded) {
+        elemento.classList.remove('expanded')
+        hidden_sec.style.display = 'none'
+        return
+    }
+    for (let i = 0; i < buttons.length; i++){
+        if (buttons[i].classList.contains('expanded')) {
+            buttons[i].classList.remove('expanded')
+            const toHide = buttons[i].querySelector('.toShowOrHide')
+            if (toHide) {
+                toHide.style.display = 'none'
             }
         }
-    });
-
-    elemento.classList.toggle('expanded');
-    if (hidden_sec) {
-        if (elemento.classList.contains('expanded')) {
-            // Mostrar el contenido oculto después de un breve retraso
-            setTimeout(function() {
-                hidden_sec.style.display = 'flex';
-            }, 1000); // Ajusta el tiempo de espera según tus necesidades
-        } else {
-            // Ocultar el contenido oculto
-            hidden_sec.style.display = 'none';
-        }
     }
-
-    // Habilitar nuevamente el manejador de eventos click después de un breve tiempo
-    setTimeout(function() {
-        elementosExpandidos.forEach(function(item) {
-            item.addEventListener('click', expand);
-        });
-    }, 500); // Ajusta el tiempo de espera según tus necesidades
+    elemento.classList.toggle('expanded')
+    if (elemento.classList.contains('expanded')) {
+        setTimeout(function (){
+            hidden_sec.style.display = "flex"
+        }, 1000)
+    } else {
+        hidden_sec.style.display = "none"
+    }
 }
+
+function clickAction() {
+    expand(this)
+}
+
+const buttons = document.querySelectorAll('.squareButtons')
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', clickAction)
+}
+
 
 // Function to navigate the products
 document.addEventListener('DOMContentLoaded', function() {
