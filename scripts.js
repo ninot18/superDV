@@ -1,31 +1,31 @@
 // Function that expands and reduce the clickable articles
+let isRunning = false
 function expand(element) {
-    const hidden_sec = element.querySelector('.toShowOrHide')
+    if (isRunning) return
+    isRunning = true
+
+    const hidden_sec = element.querySelector('.hide')
     const buttons = document.querySelectorAll('.squareButton')
     const isExpanded = element.classList.contains('expanded')
 
     if (isExpanded) {
         element.classList.remove('expanded')
-        hidden_sec.style.display = 'none'
+        hidden_sec.classList.remove('show')
+        isRunning = false
         return
     }
     for (let i = 0; i < buttons.length; i++){
         if (buttons[i].classList.contains('expanded')) {
             buttons[i].classList.remove('expanded')
-            const toHide = buttons[i].querySelector('.toShowOrHide')
+            const toHide = buttons[i].querySelector('.hide')
             if (toHide) {
-                toHide.style.display = 'none'
+                toHide.classList.remove('show')
             }
         }
     }
     element.classList.toggle('expanded')
-    if (element.classList.contains('expanded')) {
-        setTimeout(function (){
-            hidden_sec.style.display = 'flex'
-        }, 1000)
-    } else {
-        hidden_sec.style.display = 'none'
-    }
+    hidden_sec.classList.toggle('show')
+    isRunning = false
 }
 
 function clickAction() {

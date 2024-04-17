@@ -19,7 +19,7 @@ a {
 
 /* Logo section styles */
 #logo_section {
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
 }
@@ -78,11 +78,19 @@ a {
 }
 
 /* Hidden section */
-.toShowOrHide {
-    display: none;
+.hide {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+}
+.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 4s ease;
 }
 
 /* Who we are article */
