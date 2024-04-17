@@ -1,5 +1,14 @@
-// Function that expands and reduce the clickable articles
+/**
+ * Variable that checks if the expand function is running, to prevent malfunctioning while clicking fast
+ * @type {boolean}
+ * @link expand
+ */
 let isRunning = false
+
+/**
+ * Function that expands the article element "squareButton"
+ * @param element receives the element to expand as a parameter
+ */
 function expand(element) {
     if (isRunning) return
     isRunning = true
@@ -28,71 +37,93 @@ function expand(element) {
     isRunning = false
 }
 
+/**
+ * Function to associate as a button the expand function
+ */
 function clickAction() {
     expand(this)
 }
 
+/**
+ * Declaration of the clickable elements
+ * @type {NodeListOf<Element>}
+ */
 const buttons = document.querySelectorAll('.squareButton')
-
+/**
+ * Addition of the event listeners to each clickable element, calling clickAction into each one.
+ */
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', clickAction)
 }
+/**
+ * Current image for being displayed
+ * @type {number}
+ */
+let currentImageIndex = 1
+showCurrentImage()
 
+function handleButtonClick(event) {
+    event.stopPropagation();
+}
 
-// Function to navigate the products
-document.addEventListener('DOMContentLoaded', function() {
-    let currentImageIndex = 1; // Índice de la imagen actual
+/**
+ * Function to show the current image
+ */
+function showCurrentImage() {
+    let images = document.querySelectorAll('#carrusel img')
+    images.forEach(function(img) {
+        img.style.display = 'none'
+    })
+    let currentImage = document.getElementById('img' + currentImageIndex)
+    currentImage.style.display = 'block'
+}
 
-    // Función para mostrar la imagen actual
-    function showCurrentImage() {
-        let images = document.querySelectorAll('#carrusel img');
-        images.forEach(function(img) {
-            img.style.display = 'none'; // Ocultar todas las imágenes
-        });
-        let currentImage = document.getElementById('img' + currentImageIndex);
-        currentImage.style.display = 'block'; // Mostrar la imagen actual
+/**
+ * Function to navigate to the next image
+ */
+function nextImage() {
+    currentImageIndex++
+    if (currentImageIndex > 3) {
+        currentImageIndex = 1
     }
+    showCurrentImage()
+}
 
-    // Función para avanzar a la siguiente imagen
-    function nextImage() {
-        currentImageIndex++;
-        if (currentImageIndex > 3) { // Si llegamos al final, volvemos al principio
-            currentImageIndex = 1;
-        }
-        showCurrentImage();
+/**
+ * Function to navigate to the previous image
+ */
+function prevImage() {
+    currentImageIndex--;
+    if (currentImageIndex < 1) { // Si estamos al principio, vamos al final
+        currentImageIndex = 3;
     }
-
-    // Función para retroceder a la imagen anterior
-    function prevImage() {
-        currentImageIndex--;
-        if (currentImageIndex < 1) { // Si estamos al principio, vamos al final
-            currentImageIndex = 3;
-        }
-        showCurrentImage();
-    }
-
-    // Manejadores de eventos para los botones de navegación
-    document.getElementById('prevButton').addEventListener('click', prevImage);
-    document.getElementById('nextButton').addEventListener('click', nextImage);
-
-    // Mostrar la imagen inicial
     showCurrentImage();
-});
-function handlePrevButtonClick(event) {
-    // Detener la propagación del evento
-    event.stopPropagation();
-    // Tu lógica para mover a la imagen anterior
 }
 
-function handleNextButtonClick(event) {
-    // Detener la propagación del evento
-    event.stopPropagation();
-    // Tu lógica para mover a la siguiente imagen
+function dotsCreation() {
+    const bulletsContainer = document.querySelector('.bulletsContainer')
+    const totalImages = document.querySelectorAll('#carrusel img')
+
+    // Crear las bolitas
+    for (let i = 0; i < totalImages.length; i++) {
+        const bullet = document.createElement('div');
+        bullet.classList.add('bullet');
+        bulletsContainer.appendChild(bullet);
+    }
 }
+
+const nextButton = document.getElementById('prevButton')
+const prevButton = document.getElementById('nextButton')
+nextButton.addEventListener('click', handleButtonClick)
+prevButton.addEventListener('click', handleButtonClick)
+nextButton.addEventListener('click', nextImage)
+prevButton.addEventListener('click', prevImage)
 
 // Imagen slider
+
+/*
 document.addEventListener("DOMContentLoaded", function() {
-    const imageContainer = document.getElementById('carrusel');
+    const imageContainer = document.getElementById('#carrusel');
     const bulletsContainer = document.querySelector('.bullets-container');
     const image = document.querySelector('#carrusel img');
     
@@ -122,4 +153,4 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Activar la primera bolita por defecto
     setActiveBullet(bulletsContainer.querySelector('.bullet'));
-  });
+  });*/

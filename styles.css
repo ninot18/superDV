@@ -114,8 +114,8 @@ a {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 20px; /* Ajusta el ancho según sea necesario */
-    background: rgba(0, 0, 0, 0.5);
+    width: 20px;
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     border: none;
     padding: 10px;
@@ -130,9 +130,9 @@ a {
 #nextButton {
     right: 0;
 }
-.bullets-container {
+.bulletsContainer {
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -148,7 +148,7 @@ a {
 }
   
 .active {
-    background-color: #ff0000; /* Color para la bolita activa */
+    background-color: #ff0000;
 }
 
 /* Mobile devices styles */
