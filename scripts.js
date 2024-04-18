@@ -60,10 +60,9 @@ for (let i = 0; i < buttons.length; i++) {
  * @type {number}
  */
 let currentImageIndex = 1
-showCurrentImage()
 
 function handleButtonClick(event) {
-    event.stopPropagation();
+    event.stopPropagation()
 }
 
 /**
@@ -76,6 +75,7 @@ function showCurrentImage() {
     })
     let currentImage = document.getElementById('img' + currentImageIndex)
     currentImage.style.display = 'block'
+    setActiveBullet(currentImageIndex)
 }
 
 /**
@@ -94,63 +94,58 @@ function nextImage() {
  */
 function prevImage() {
     currentImageIndex--;
-    if (currentImageIndex < 1) { // Si estamos al principio, vamos al final
-        currentImageIndex = 3;
+    if (currentImageIndex < 1) {
+        currentImageIndex = 3
     }
-    showCurrentImage();
+    showCurrentImage()
+}
+
+function dotImage(num){
+    currentImageIndex = num
+    showCurrentImage()
 }
 
 function dotsCreation() {
     const bulletsContainer = document.querySelector('.bulletsContainer')
     const totalImages = document.querySelectorAll('#carrusel img')
 
-    // Crear las bolitas
     for (let i = 0; i < totalImages.length; i++) {
-        const bullet = document.createElement('div');
-        bullet.classList.add('bullet');
-        bulletsContainer.appendChild(bullet);
+        const bullet = document.createElement('div')
+        bullet.classList.add('bullet')
+        bullet.id = `dot${i+1}`
+        bulletsContainer.appendChild(bullet)
     }
+
 }
 
-const nextButton = document.getElementById('prevButton')
-const prevButton = document.getElementById('nextButton')
+function setActiveBullet(id) {
+    const bulletsContainer = document.querySelector('.bulletsContainer')
+    const bullets = bulletsContainer.querySelectorAll('.bullet')
+    bullets.forEach(bullet => bullet.classList.remove('active'))
+    const dot = document.getElementById(`dot${id}`)
+    dot.classList.add('active')
+}
+
+function dotAction(element) {
+    const fullId = element.id
+    let numId = fullId.match(/\d+/)[0]
+    dotImage(numId)
+}
+function dotClick() {
+    dotAction(this)
+}
+dotsCreation()
+showCurrentImage()
+const nextButton = document.getElementById('nextButton')
+const prevButton = document.getElementById('prevButton')
 nextButton.addEventListener('click', handleButtonClick)
 prevButton.addEventListener('click', handleButtonClick)
 nextButton.addEventListener('click', nextImage)
 prevButton.addEventListener('click', prevImage)
 
-// Imagen slider
+const dotButtons = document.querySelectorAll('.bullet')
 
-/*
-document.addEventListener("DOMContentLoaded", function() {
-    const imageContainer = document.getElementById('#carrusel');
-    const bulletsContainer = document.querySelector('.bullets-container');
-    const image = document.querySelector('#carrusel img');
-    
-    // Obtener el número total de imágenes
-    const totalImages = 3; // Este valor debe ser el total de imágenes que tengas
-    
-    // Crear las bolitas
-    for (let i = 0; i < totalImages; i++) {
-      const bullet = document.createElement('div');
-      bullet.classList.add('bullet');
-      bulletsContainer.appendChild(bullet);
-      
-      // Evento click para cambiar la imagen
-      bullet.addEventListener('click', function() {
-        const imageIndex = i + 1;
-        image.src = `images/localImgs${imageIndex}.jpg`; // Cambia la ruta de la imagen según la numeración de tus imágenes
-        setActiveBullet(this);
-      });
-    }
-    
-    // Función para activar la bolita correspondiente
-    function setActiveBullet(selectedBullet) {
-      const bullets = bulletsContainer.querySelectorAll('.bullet');
-      bullets.forEach(bullet => bullet.classList.remove('active'));
-      selectedBullet.classList.add('active');
-    }
-    
-    // Activar la primera bolita por defecto
-    setActiveBullet(bulletsContainer.querySelector('.bullet'));
-  });*/
+dotButtons.forEach(dotButton => dotButton.addEventListener('click', handleButtonClick))
+dotButtons.forEach(dotButton => dotButton.addEventListener('click', dotClick))
+
+

@@ -19,7 +19,7 @@ a {
 
 /* Logo section styles */
 #logo_section {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -140,7 +140,7 @@ a {
 .bullet {
     width: 10px;
     height: 10px;
-    background-color: #ccc;
+    background-color: rgba(0, 0, 0, 0.76);
     border-radius: 50%;
     display: inline-block;
     margin: 0 5px;
@@ -148,7 +148,7 @@ a {
 }
   
 .active {
-    background-color: #ff0000;
+    background-color: rgba(255, 0, 0, 0.84);
 }
 
 /* Mobile devices styles */
