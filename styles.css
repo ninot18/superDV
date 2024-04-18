@@ -1,3 +1,9 @@
+/* Block the tap-highlight color */
+* {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+
 /* Body styles for the whole web */
 body {
     background-image: url(images/FONDOCOL.jpg);
