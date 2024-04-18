@@ -61,6 +61,10 @@ for (let i = 0; i < buttons.length; i++) {
  */
 let currentImageIndex = 1
 
+/**
+ * Function to prevent other clicks to interfere with a predominant click
+ * @param event Is the event that is being prevented
+ */
 function handleButtonClick(event) {
     event.stopPropagation()
 }
@@ -100,11 +104,18 @@ function prevImage() {
     showCurrentImage()
 }
 
+/**
+ * Function that loads the image associated with a specific id
+ * @param num Id of the image that will be displayed
+ */
 function dotImage(num){
     currentImageIndex = num
     showCurrentImage()
 }
 
+/**
+ * Creation of the dots to show how many images are being displayed
+ */
 function dotsCreation() {
     const bulletsContainer = document.querySelector('.bulletsContainer')
     const totalImages = document.querySelectorAll('#carrusel img')
@@ -118,6 +129,10 @@ function dotsCreation() {
 
 }
 
+/**
+ * Function that sets the color of the active image that is being displayed
+ * @param id of the image that has to be displayed
+ */
 function setActiveBullet(id) {
     const bulletsContainer = document.querySelector('.bulletsContainer')
     const bullets = bulletsContainer.querySelectorAll('.bullet')
@@ -126,25 +141,62 @@ function setActiveBullet(id) {
     dot.classList.add('active')
 }
 
+/**
+ * Function that gets the number from the image ID
+ * @param element
+ */
 function dotAction(element) {
     const fullId = element.id
     let numId = fullId.match(/\d+/)[0]
     dotImage(numId)
 }
+
+/**
+ * Function to execute the dot action
+ */
 function dotClick() {
     dotAction(this)
 }
+
+/**
+ * Creation of the dots
+ */
 dotsCreation()
+
+/**
+ * Loading the first image
+ */
 showCurrentImage()
+
+/**
+ * Creating the buttons to add the click event
+ * @type {HTMLElement}
+ */
 const nextButton = document.getElementById('nextButton')
+
+/**
+ * Creating the buttons to add the click event
+ * @type {HTMLElement} Array of "squareButtons elements"
+ */
 const prevButton = document.getElementById('prevButton')
+
+/**
+ * Adding the event listeners to each button created
+ */
 nextButton.addEventListener('click', handleButtonClick)
 prevButton.addEventListener('click', handleButtonClick)
 nextButton.addEventListener('click', nextImage)
 prevButton.addEventListener('click', prevImage)
 
+/**
+ * Creating the buttons to add the click event to each dot
+ * @type {NodeListOf<Element>} Array of "dots elements"
+ */
 const dotButtons = document.querySelectorAll('.bullet')
 
+/**
+ * Adding the event listener to each button created
+ */
 dotButtons.forEach(dotButton => dotButton.addEventListener('click', handleButtonClick))
 dotButtons.forEach(dotButton => dotButton.addEventListener('click', dotClick))
 
