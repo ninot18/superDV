@@ -143,8 +143,8 @@ a {
 }
   
 .bullet {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     background-color: rgba(0, 0, 0, 0.76);
     border-radius: 50%;
     display: inline-block;
@@ -154,6 +154,8 @@ a {
   
 .active {
     background-color: rgba(255, 0, 0, 0.84);
+    width: 18px;
+    height: 18px;
 }
 
 /* Mobile devices styles */

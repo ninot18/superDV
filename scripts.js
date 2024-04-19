@@ -173,21 +173,21 @@ showCurrentImage()
  * Creating the buttons to add the click event
  * @type {HTMLElement}
  */
-const nextButton = document.getElementById('nextButton')
+//const nextButton = document.getElementById('nextButton')
 
 /**
  * Creating the buttons to add the click event
  * @type {HTMLElement} Array of "squareButtons elements"
  */
-const prevButton = document.getElementById('prevButton')
+//const prevButton = document.getElementById('prevButton')
 
 /**
  * Adding the event listeners to each button created
  */
-nextButton.addEventListener('click', handleButtonClick)
-prevButton.addEventListener('click', handleButtonClick)
-nextButton.addEventListener('click', nextImage)
-prevButton.addEventListener('click', prevImage)
+//nextButton.addEventListener('click', handleButtonClick)
+//prevButton.addEventListener('click', handleButtonClick)
+//nextButton.addEventListener('click', nextImage)
+//prevButton.addEventListener('click', prevImage)
 
 /**
  * Creating the buttons to add the click event to each dot
