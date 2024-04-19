@@ -53,6 +53,7 @@ const buttons = document.querySelectorAll('.squareButton')
  * Addition of the event listeners to each clickable element, calling clickAction into each one.
  */
 for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', handleButtonClick)
     buttons[i].addEventListener('click', clickAction)
 }
 /**
@@ -200,4 +201,16 @@ const dotButtons = document.querySelectorAll('.bullet')
 dotButtons.forEach(dotButton => dotButton.addEventListener('click', handleButtonClick))
 dotButtons.forEach(dotButton => dotButton.addEventListener('click', dotClick))
 
+/**
+ *
+ */
+function closeAll() {
+    const squares = document.querySelectorAll('.squareButton')
+    squares.forEach(square => {
+        square.classList.remove('expanded')
+        square.querySelector('.hide').classList.remove('show')
+    })
+}
 
+const body = document.getElementById('body')
+body.addEventListener('click', closeAll)
