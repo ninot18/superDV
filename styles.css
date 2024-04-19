@@ -186,6 +186,7 @@ footer p{
     }
     #carrusel img {
         height: 340px;
-        width: 295px;
+        width: 290px;
+        border-radius: 4px;
     }
 }
