@@ -111,8 +111,8 @@ a {
     display: inline-block;
 }
 #carrusel img {
-    height: 400px;
-    width: 550px;
+    width: 540px;
+    height: 340px;
 }
 #prevButton,
 #nextButton {
@@ -137,7 +137,7 @@ a {
 }
 .bulletsContainer {
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -158,6 +158,18 @@ a {
     height: 18px;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+footer p{
+    text-align: center;
+    color: whitesmoke;
+}
+
 /* Mobile devices styles */
 @media only screen and (max-width: 768px) {
     #logo_section img{
@@ -173,7 +185,7 @@ a {
         width: 300px;
     }
     #carrusel img {
-        height: 400px;
-        width: 300px;
+        height: 340px;
+        width: 295px;
     }
 }
