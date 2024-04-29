@@ -189,6 +189,7 @@ footer p{
         height: 360px;
         width: auto;
         padding: 0;
+        margin: 0;
     }
     #button_section{
         flex-direction: column;
@@ -196,10 +197,11 @@ footer p{
         align-items: center;
     }
     .squareButton.expanded{
+        height: 340px;
         width: 300px;
     }
     #carrusel img {
-        height: 340px;
+        height: 335px;
         width: 290px;
         border-radius: 4px;
     }
