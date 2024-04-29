@@ -188,6 +188,7 @@ footer p{
     #logo_section img{
         height: 360px;
         width: auto;
+        padding: 0;
     }
     #button_section{
         flex-direction: column;
