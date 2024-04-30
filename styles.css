@@ -4,29 +4,21 @@
 }
 
 /* Body styles for the whole web */
-html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: url(images/FONDO.svg);
+    background-image: linear-gradient(to right, rgba(246, 244, 244, 0.5), rgba(246, 244, 244, 0.5)), url('images/FONDO.svg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: "Sawarabi Gothic", sans-serif;
     font-weight: 400;
     font-style: normal;
     text-align: justify;
     text-justify: inter-word;
-    overflow: hidden;
-}
-#body {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(126, 126, 126, 0.5);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 a {
