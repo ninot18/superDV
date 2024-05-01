@@ -8,7 +8,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to right, rgba(246, 244, 244, 0.35), rgba(246, 244, 244, 0.35)), url('images/FONDO.svg');
+    background-image: linear-gradient(to right, rgba(101, 101, 101, 0.45), rgba(101, 101, 101, 0.45)), url('images/FONDO.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -88,6 +88,9 @@ a {
 
 /* Hidden section */
 .hide {
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,10 +117,13 @@ a {
 #carrusel {
     position: relative;
     display: inline-block;
-}
-#carrusel img {
     width: 540px;
     height: 340px;
+}
+#carrusel img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+    height: 100%; /* Hace que la imagen ocupe todo el alto del contenedor */
+    object-fit: contain;
 }
 #prevButton,
 #nextButton {
@@ -142,7 +148,7 @@ a {
 }
 .bulletsContainer {
     position: absolute;
-    bottom: 10px;
+    bottom: -140px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -172,8 +178,7 @@ footer {
 }
 footer p{
     text-align: center;
-    color: rgb(40, 94, 150);
-    font-weight: bolder;
+    color: rgb(255, 255, 255);
 }
 
 /* Mobile devices styles */
@@ -191,11 +196,10 @@ footer p{
     }
     .squareButton.expanded{
         height: 340px;
-        width: 300px;
+        width: 330px;
     }
-    #carrusel img {
+    #carrusel {
         height: 335px;
-        width: 290px;
-        border-radius: 4px;
+        width: 325px;
     }
 }
