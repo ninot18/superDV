@@ -88,7 +88,7 @@ function showCurrentImage() {
  */
 function nextImage() {
     currentImageIndex++
-    if (currentImageIndex > 3) {
+    if (currentImageIndex > 7) {
         currentImageIndex = 1
     }
     showCurrentImage()
@@ -100,7 +100,7 @@ function nextImage() {
 function prevImage() {
     currentImageIndex--;
     if (currentImageIndex < 1) {
-        currentImageIndex = 3
+        currentImageIndex = 7
     }
     showCurrentImage()
 }
@@ -214,3 +214,31 @@ function closeAll() {
 
 const body = document.getElementById('body')
 body.addEventListener('click', closeAll)
+
+/**
+ * Swipe function to mobile screens
+ */
+
+let div = document.getElementById('carrusel')
+
+let startX = 0
+let startY = 0
+
+div.addEventListener('touchstart', function(event) {
+    handleButtonClick(event)
+    let touch = event.touches[0]
+    startX = touch.clientX
+    
+})
+
+div.addEventListener('touchend', function(event) {
+    handleButtonClick(event)
+    let touch = event.changedTouches[0]
+    let endX = touch.clientX
+    
+    if (endX < startX) {
+        nextImage()
+    } else if (endX > startX) {
+        prevImage()
+    }
+})
