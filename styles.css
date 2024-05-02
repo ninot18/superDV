@@ -103,7 +103,10 @@ a {
     opacity: 1;
     visibility: visible;
     padding: 15px;
-    transition: opacity 4s ease;
+    transition: opacity 2s;
+}
+#whoWeAre .hide {
+    transition: opacity 3s;
 }
 
 /* Who we are article */
@@ -113,6 +116,12 @@ a {
     border-radius: 20px;
 }
 
+/* Where we are article */
+#mapa {
+    width: 515px;
+    height: 320px;
+    border-radius: 4px;
+}
 /* What we sell article */
 #carrusel {
     position: relative;
@@ -197,6 +206,10 @@ footer p{
     .squareButton.expanded{
         height: 340px;
         width: 330px;
+    }
+    #mapa {
+        width: 320px;
+        height: 310px;
     }
     #carrusel {
         height: 335px;
